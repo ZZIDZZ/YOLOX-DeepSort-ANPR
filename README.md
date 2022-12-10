@@ -23,7 +23,7 @@ Detailed PyTesseract installation guide can be read here:
 ### Example
 
 to run detection on a video:
-`python3 --path ./path/to/video`
+`python3 ./demo.py --path ./path/to/video`
 
 ## Datasets Used
 
