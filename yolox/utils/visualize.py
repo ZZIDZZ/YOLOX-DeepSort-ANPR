@@ -69,7 +69,6 @@ def vis_track(img, boxes, scores, cls_ids, conf=0.5, class_names=['licence'], ra
     for i in range(len(boxes)):
         if scores[i] > conf:
             box = boxes[i]
-            print(box)
 
             x0 = abs(int(box[0]))
             y0 = abs(int(box[1]))
@@ -77,13 +76,10 @@ def vis_track(img, boxes, scores, cls_ids, conf=0.5, class_names=['licence'], ra
             y1 = abs(int(box[3]))
             id = box[4]
             cls_id = int(cls_ids[i])
-            print(y0, y1, x0, x1)
-            print(img.shape)
             number_plate = pytesseract.image_to_string(img[y0:y1, x0:x1], lang = 'eng', config='--psm 11')
             color_ = _COLORS[cls_id%_COLORS.shape[0]]
             color = (color_ * 255).astype(np.uint8).tolist()
             text = '%d'%(cls_id)
-            print(class_names[cls_id], scores[i] * 100, number_plate)
             text = '{}:{:.1f}%\n{}'.format(id, scores[i] * 100, number_plate)
             txt_color = (255, 255, 255)
             font = cv2.FONT_HERSHEY_SIMPLEX
