@@ -35,5 +35,6 @@ However, training is done on COCO JSON Format dataset that could be found here:
 ## Future Improvements
 
 - Optimize model accuracy
+- Optimize OCR detection
 - Restructure project
 - Optimize engine efficiency
